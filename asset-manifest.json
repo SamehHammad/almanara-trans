@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/almnarah/static/css/main.a0f41f57.css",
-    "main.js": "/almnarah/static/js/main.3d2ce163.js",
-    "static/js/787.0e728f02.chunk.js": "/almnarah/static/js/787.0e728f02.chunk.js",
-    "static/media/Sameh Hammad_CV.pdf": "/almnarah/static/media/Sameh Hammad_CV.be8e1324a7f0da4705d3.pdf",
-    "static/media/manara.png": "/almnarah/static/media/manara.1ce86d02554ffea4fd0a.png",
-    "static/media/moving.png": "/almnarah/static/media/moving.7c7aa1acc96e4a51076d.png",
-    "static/media/home-move.png": "/almnarah/static/media/home-move.d4ca3d97c06c0ddf3b20.png",
-    "static/media/electric.png": "/almnarah/static/media/electric.c983212d9ec2b371d0e0.png",
-    "static/media/cars.jpg": "/almnarah/static/media/cars.b1a7211f1c58a5a30adc.jpg",
-    "static/media/cov.jpg": "/almnarah/static/media/cov.dce99278ebe7091e3adc.jpg",
-    "static/media/covv.jpg": "/almnarah/static/media/covv.a3404c9db80dc6e18033.jpg",
-    "static/media/fakk.jpg": "/almnarah/static/media/fakk.ad421bfce2c0c1479325.jpg",
-    "static/media/wnsh.jpg": "/almnarah/static/media/wnsh.291f82ba12b6dd5ca10a.jpg",
-    "static/media/logo.png": "/almnarah/static/media/logo.74a178be75a48e1a5540.png",
-    "static/media/covering.jpg": "/almnarah/static/media/covering.b923c407a84b58e7d7ed.jpg",
-    "static/media/intro-car.jpg": "/almnarah/static/media/intro-car.f9eecca68a3a30c0d743.jpg",
-    "index.html": "/almnarah/index.html",
-    "main.a0f41f57.css.map": "/almnarah/static/css/main.a0f41f57.css.map",
-    "main.3d2ce163.js.map": "/almnarah/static/js/main.3d2ce163.js.map",
-    "787.0e728f02.chunk.js.map": "/almnarah/static/js/787.0e728f02.chunk.js.map"
+    "main.css": "/almanarah/static/css/main.a0f41f57.css",
+    "main.js": "/almanarah/static/js/main.fe4bf8b3.js",
+    "static/js/787.0e728f02.chunk.js": "/almanarah/static/js/787.0e728f02.chunk.js",
+    "static/media/Sameh Hammad_CV.pdf": "/almanarah/static/media/Sameh Hammad_CV.be8e1324a7f0da4705d3.pdf",
+    "static/media/manara.png": "/almanarah/static/media/manara.1ce86d02554ffea4fd0a.png",
+    "static/media/moving.png": "/almanarah/static/media/moving.7c7aa1acc96e4a51076d.png",
+    "static/media/home-move.png": "/almanarah/static/media/home-move.d4ca3d97c06c0ddf3b20.png",
+    "static/media/electric.png": "/almanarah/static/media/electric.c983212d9ec2b371d0e0.png",
+    "static/media/cars.jpg": "/almanarah/static/media/cars.b1a7211f1c58a5a30adc.jpg",
+    "static/media/cov.jpg": "/almanarah/static/media/cov.dce99278ebe7091e3adc.jpg",
+    "static/media/covv.jpg": "/almanarah/static/media/covv.a3404c9db80dc6e18033.jpg",
+    "static/media/fakk.jpg": "/almanarah/static/media/fakk.ad421bfce2c0c1479325.jpg",
+    "static/media/wnsh.jpg": "/almanarah/static/media/wnsh.291f82ba12b6dd5ca10a.jpg",
+    "static/media/logo.png": "/almanarah/static/media/logo.74a178be75a48e1a5540.png",
+    "static/media/covering.jpg": "/almanarah/static/media/covering.b923c407a84b58e7d7ed.jpg",
+    "static/media/intro-car.jpg": "/almanarah/static/media/intro-car.f9eecca68a3a30c0d743.jpg",
+    "index.html": "/almanarah/index.html",
+    "main.a0f41f57.css.map": "/almanarah/static/css/main.a0f41f57.css.map",
+    "main.fe4bf8b3.js.map": "/almanarah/static/js/main.fe4bf8b3.js.map",
+    "787.0e728f02.chunk.js.map": "/almanarah/static/js/787.0e728f02.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a0f41f57.css",
-    "static/js/main.3d2ce163.js"
+    "static/js/main.fe4bf8b3.js"
   ]
 }
