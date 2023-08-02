@@ -1,0 +1,99 @@
+
+.dd {
+  width: 99%;
+  justify-content: space-between;
+}
+input {
+  margin-bottom: 2px;
+}
+.doooor {
+  display: flex;
+  margin: 0;
+
+}
+.confirm-btn {
+  position: absolute;
+  bottom: 50px;
+  width: 95%;
+}
+.order-btns{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px;
+}
+.winsh {
+  margin-left: 50px;
+  width: 100%;
+}
+
+.popup {
+  position: fixed;
+  width: 100%;
+  height: 110vh;
+  top: 0;
+  left: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.369);
+  z-index: 100;
+}
+.nn {
+  font-size: 20px;
+  font-weight: 900;
+}
+.nn span {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(242, 66, 7);
+}
+.popup_inner {
+  position: relative;
+  width: 40%;
+  margin: auto;
+  margin-top: 5px;
+  background: white;
+  border-radius: 20px;
+  height: auto;
+}
+.close-btn-popup {
+  font-size: 45px !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: red;
+  cursor: pointer;
+}
+.popup-header {
+  font-size: 30px;
+  text-align: center;
+  margin: 10px !important;
+    font-weight: 900;
+}
+
+.r-cont h5 {
+  background-color: rgba(0, 0, 0, 0.452);
+  color: white;
+  padding: 5px;
+  font-size: 12px;
+}
+@media screen and (max-width: 1142px) {
+  .popup-header {
+    font-size: 23px;
+    font-weight: 400;
+  }
+}
+@media screen and (max-width: 870px) {
+  .popup_inner {
+    width: 80%;
+  }
+  .popup-header {
+    font-size: 15px;
+    font-weight: 900;
+
+  }
+  .recipe-cont h5 {
+    font-size: 10px;
+  }
+  .recipe-cont h5 span {
+    background-color: rgba(0, 0, 0, 0.452);
+  }
+}

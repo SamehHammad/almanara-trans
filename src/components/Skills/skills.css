@@ -1,0 +1,36 @@
+.image-size {
+    height: 350px;
+    width: 350px;
+    /* max-height: 100%; */
+    max-width: 100%;
+    box-shadow: 3px 15px 50px rgb(73, 139, 152);
+}
+
+  .orders-num {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: -5px;
+    left: -5px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: red;
+  }
+.h-300 {
+    height: 470px !important;
+}
+.card{
+    position: relative;
+    text-align: center;
+}
+.book-btn{
+    position: absolute;
+    bottom: 120px;
+    left: 0;
+}
+.card-text{
+    width: 350px;
+}
+.offers{
+    margin-top: 100px !important;
+}

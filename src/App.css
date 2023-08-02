@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo&family=El+Messiri&display=swap");
+
+.m-dark {
+  box-shadow: rgb(254, 254, 252) 0px 30px 60px -12px,
+    rgb(197, 193, 189) 0px 18px 36px -18px;
+  background: linear-gradient(#424449,rgb(66, 50, 51) );
+  color: blanchedalmond;
+  transition: all 3s ease;
+}
+.app {
+  color: #353c4e;
+  background: #f0f2f4;
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  height: 100vh;
+  width: 100%;
+}
+
+.header {
+  background: white;
+  padding: 1rem 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header > div > img {
+  height: 1.75rem;
+}
+
+.header > div > span {
+  vertical-align: super;
+  padding-left: 0.5rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  padding-top: 2rem;
+}
+
+.content > img {
+  height: 45vh;
+}
+
+.content > p {
+  font-size: 2rem;
+}
+
+.footer {
+  margin-bottom: 10vh;
+  text-align: center;
+}
+
+.m-light {
+  box-shadow: rgb(22, 22, 21) 0px 30px 60px -12px,
+    rgb(43, 40, 36) 0px 18px 36px -18px;
+  background-color: #fffeff !important;
+  color: black;
+  transition: all 3s ease;
+}
+.resume {
+  position: relative;
+}
+.resume span {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: -10px;
+  left: -5px;
+  border-radius: 50%;
+  text-align: center;
+  background-color: red;
+}
