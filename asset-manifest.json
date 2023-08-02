@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/almnarah/static/css/main.42bbbbaf.css",
-    "main.js": "/almnarah/static/js/main.f90e3072.js",
+    "main.js": "/almnarah/static/js/main.4377615d.js",
     "static/js/787.0e728f02.chunk.js": "/almnarah/static/js/787.0e728f02.chunk.js",
     "static/media/Sameh Hammad_CV.pdf": "/almnarah/static/media/Sameh Hammad_CV.be8e1324a7f0da4705d3.pdf",
     "static/media/manara.png": "/almnarah/static/media/manara.1ce86d02554ffea4fd0a.png",
@@ -18,11 +18,11 @@
     "static/media/intro-car.jpg": "/almnarah/static/media/intro-car.f9eecca68a3a30c0d743.jpg",
     "index.html": "/almnarah/index.html",
     "main.42bbbbaf.css.map": "/almnarah/static/css/main.42bbbbaf.css.map",
-    "main.f90e3072.js.map": "/almnarah/static/js/main.f90e3072.js.map",
+    "main.4377615d.js.map": "/almnarah/static/js/main.4377615d.js.map",
     "787.0e728f02.chunk.js.map": "/almnarah/static/js/787.0e728f02.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.42bbbbaf.css",
-    "static/js/main.f90e3072.js"
+    "static/js/main.4377615d.js"
   ]
 }
