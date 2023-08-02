@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-scroll";
 import Button from "../button/Button";
 import { changeMode } from "../slice/modeSlice";
-import { BsMoonStarsFill, BsFillSunFill, BsPersonCircle } from "react-icons/bs";
-// import { AiOutlineDown } from "react-icons/ai";
+import { BsMoonStarsFill, BsFillSunFill } from "react-icons/bs";
 
 import "./navbar.css";
 import Popup from "../Skills/Popup";
@@ -15,7 +14,6 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const { mode } = useSelector((state) => state.darkMode);
   const [showPopup, setShowPopup] = useState(false);
-  const [name, setName] = useState("");
   const togglePopup = (e) => {
     setShowPopup(!showPopup);
   };
@@ -31,10 +29,7 @@ const Navbar = () => {
   const clickHndler = () => {
     setNave(!nav);
   };
-  useEffect(() => {
-    const getData = localStorage.getItem("name");
-    setName(JSON.parse(getData));
-  }, []);
+
   return (
     <div className="fixed w-full z-20">
       <nav
@@ -181,7 +176,6 @@ const Navbar = () => {
         </ul>
       </nav>
       {showPopup ? <Popup closePopup={togglePopup} /> : null}
-      {/* {showAuthPopup ? <LoginPopup closePopup={toggleAuthPopup} /> : null} */}
     </div>
   );
 };
