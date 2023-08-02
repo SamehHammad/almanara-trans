@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/almnarah/static/css/main.e949331a.css",
+    "main.css": "/almnarah/static/css/main.a0f41f57.css",
     "main.js": "/almnarah/static/js/main.0146eeed.js",
     "static/js/787.0e728f02.chunk.js": "/almnarah/static/js/787.0e728f02.chunk.js",
     "static/media/Sameh Hammad_CV.pdf": "/almnarah/static/media/Sameh Hammad_CV.be8e1324a7f0da4705d3.pdf",
@@ -17,12 +17,12 @@
     "static/media/covering.jpg": "/almnarah/static/media/covering.b923c407a84b58e7d7ed.jpg",
     "static/media/intro-car.jpg": "/almnarah/static/media/intro-car.f9eecca68a3a30c0d743.jpg",
     "index.html": "/almnarah/index.html",
-    "main.e949331a.css.map": "/almnarah/static/css/main.e949331a.css.map",
+    "main.a0f41f57.css.map": "/almnarah/static/css/main.a0f41f57.css.map",
     "main.0146eeed.js.map": "/almnarah/static/js/main.0146eeed.js.map",
     "787.0e728f02.chunk.js.map": "/almnarah/static/js/787.0e728f02.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e949331a.css",
+    "static/css/main.a0f41f57.css",
     "static/js/main.0146eeed.js"
   ]
 }
