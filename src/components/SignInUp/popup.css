@@ -1,0 +1,84 @@
+
+.l-input {
+  margin-bottom: 2px;
+  display: block;
+  text-align: center;
+  margin: 3% auto 0 auto;
+  border: 1px solid #020916c8;
+  width: 80%;
+}
+
+.l-form{
+  margin-top: 8%;
+}
+.loginPopup {
+  position: fixed;
+  width: 100%;
+  height: 110vh;
+  top: 15%;
+  left: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.369);
+  z-index: 100;
+}
+.nn {
+  font-size: 20px;
+  font-weight: 900;
+}
+.nn span {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(242, 66, 7);
+}
+.loginPopup_inner {
+  position: relative;
+  width: 55%;
+  margin: auto;
+  margin-top: 5px;
+  background: white;
+  border-radius: 20px;
+  height: 70%;
+}
+.close-btn-popup {
+  font-size: 45px !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #F55839;
+  cursor: pointer;
+}
+.popup-header {
+  font-size: 30px;
+  text-align: center;
+  margin: 10px !important;
+    font-weight: 900;
+}
+
+.r-cont h5 {
+  background-color: rgba(0, 0, 0, 0.452);
+  color: white;
+  padding: 5px;
+  font-size: 12px;
+}
+@media screen and (max-width: 1142px) {
+  .popup-header {
+    font-size: 23px;
+    font-weight: 400;
+  }
+}
+@media screen and (max-width: 870px) {
+  .popup_inner {
+    width: 80%;
+  }
+  .popup-header {
+    font-size: 15px;
+    font-weight: 900;
+
+  }
+  .recipe-cont h5 {
+    font-size: 10px;
+  }
+  .recipe-cont h5 span {
+    background-color: rgba(0, 0, 0, 0.452);
+  }
+}

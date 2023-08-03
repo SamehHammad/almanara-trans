@@ -337,7 +337,7 @@ const Popup = ({ closePopup }) => {
                           type="text"
                           dir="rtl"
                           className="
-              h-10
+              h-8
               px-5
                 
                 w-full
@@ -360,7 +360,7 @@ const Popup = ({ closePopup }) => {
                           type="number"
                           dir="rtl"
                           className="
-              h-10
+              h-8
               px-5
                 
                 w-full
@@ -385,7 +385,7 @@ const Popup = ({ closePopup }) => {
                             type="text"
                             dir="rtl"
                             className="
-                      h-10
+                      h-8
                       px-5
                 
                 dd
@@ -408,7 +408,7 @@ const Popup = ({ closePopup }) => {
                             type="text"
                             dir="rtl"
                             className="
-                      h-10
+                      h-8
                       px-5
                 
                 dd
@@ -433,7 +433,7 @@ const Popup = ({ closePopup }) => {
                             type="number"
                             dir="rtl"
                             className="
-                      h-10
+                      h-8
                       px-5
                 
                 dd
@@ -456,7 +456,7 @@ const Popup = ({ closePopup }) => {
                             type="number"
                             dir="rtl"
                             className="
-                      h-10
+                      h-8
                       px-5
                 
                 dd
@@ -481,7 +481,7 @@ const Popup = ({ closePopup }) => {
                           type="number"
                           dir="rtl"
                           className="
-                      h-10
+                      h-8
                       px-5
                 
                 ddd
@@ -505,7 +505,7 @@ const Popup = ({ closePopup }) => {
                           type="number"
                           dir="rtl"
                           className="
-                      h-10
+                      h-8
                       px-5
                 
                 ddd
@@ -550,7 +550,7 @@ const Popup = ({ closePopup }) => {
                           type="submit"
                           dir="rtl"
                           className="
-                h-10
+                h-8
                 px-10
                 text-indigo-100
                 bg-green-700

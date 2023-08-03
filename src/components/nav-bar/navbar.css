@@ -1,10 +1,30 @@
-/* .logo span {
-  color: #facc15;
+.dropdown {
+  position: relative;
+  display: flex;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 20px;
+  left: -30px;
+  min-width: 150px;
+  text-align: center;
+  background-color: #b01f1f;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 .logo {
   max-width: 200px;
   min-width: 200px;
 }
+
 .logo h1 {
   color: white;
   animation-name: logo;
@@ -14,6 +34,7 @@
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
+
 @keyframes logo {
   0% {
     letter-spacing: 1px;
@@ -21,18 +42,20 @@
   100% {
     letter-spacing: 20px;
   }
-  
-} */
+}
+
 .nav-logo {
   width: 130px;
   height: 130px;
 }
+
 #darkmode {
   display: flex;
   justify-content: right;
   margin-top: 5px;
 }
-.n-right{
+
+.n-right {
   display: flex;
   justify-content: right;
 }
@@ -42,6 +65,7 @@
   box-shadow: rgb(22, 22, 21) 0px 30px 60px -12px,
     rgb(43, 40, 36) 0px 18px 36px -18px;
 }
+
 #darkmode .checkbox {
   opacity: 0;
   position: absolute;
@@ -75,11 +99,13 @@
 #darkmode .checkbox:checked + .label .ball {
   transform: translateX(25px);
 }
+
 .zzz li {
   font-size: 14px;
   font-weight: 900;
   gap: 0rem !important;
 }
+
 .resume {
   font-size: 15px;
 }
@@ -90,6 +116,7 @@
     height: 100px;
   }
 }
+
 @media (max-width: 760px) {
   ul li {
     font-size: 20px;
@@ -106,4 +133,10 @@
     width: 150px;
     height: 150px;
   }
+  .dropdown-content {
+    top: 40px;
+    left: 20px;
+  }
 }
+
+

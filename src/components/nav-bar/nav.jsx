@@ -1,23 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-scroll";
 import Button from "../button/Button";
 import { changeMode } from "../slice/modeSlice";
-import { BsMoonStarsFill, BsFillSunFill } from "react-icons/bs";
+import { BsMoonStarsFill, BsFillSunFill, BsPersonCircle } from "react-icons/bs";
+import { AiOutlineDown } from "react-icons/ai";
 
 import "./navbar.css";
 import Popup from "../Skills/Popup";
 import cars from "../assets/almanara/logo.png";
-
+import LoginPopup from "../SignInUp/LoginPopup";
+import { useAuth } from "../Context/AuthContext";
 const Navbar = () => {
   const dispatch = useDispatch();
+  const { currentUser, logout } = useAuth();
+  const [error, setError] = useState("");
   const { mode } = useSelector((state) => state.darkMode);
   const [showPopup, setShowPopup] = useState(false);
+  const [name, setName] = useState("");
+  const [showAuthPopup, setShowAuthPopup] = useState(false);
   const togglePopup = (e) => {
     setShowPopup(!showPopup);
   };
-
+  const toggleAuthPopup = (e) => {
+    setShowAuthPopup(!showAuthPopup);
+  };
+  const handleLogout = async (e) => {
+    e.preventDefault();
+    console.log("loggedout");
+    try {
+      setError("");
+      await logout();
+    } catch (err) {
+      setError(err.message);
+      console.log("can't logging out");
+    }
+  };
   const navbar = {
     link1: "الرئيسيه",
     link2: "خدماتنا",
@@ -29,7 +48,10 @@ const Navbar = () => {
   const clickHndler = () => {
     setNave(!nav);
   };
-
+  useEffect(() => {
+    const getData = localStorage.getItem("name");
+    setName(JSON.parse(getData));
+  }, []);
   return (
     <div className="fixed w-full z-20">
       <nav
@@ -56,7 +78,7 @@ const Navbar = () => {
           className="n-right hidden md:flex grow text-xl items-center font-semibold	 "
         >
           <div className="n-list grow-4 ">
-            <ul className="hidden md:flex gap-4  cursor-pointer 	zzz">
+            <ul className="hidden md:flex gap-4 cursor-pointer zzz">
               <li className="">
                 <div id="darkmode">
                   <input
@@ -104,6 +126,29 @@ const Navbar = () => {
                 {" "}
                 <Button togglePopup={togglePopup} />
               </li>
+
+              {currentUser ? (
+                <div className="dropdown">
+                  <h6>{name}</h6>
+                  <BsPersonCircle className="mx-1 text-2xl" />
+                  <AiOutlineDown />
+                  <div className="dropdown-content">
+                    <p onClick={handleLogout}>تسجيل الخروج</p>
+                  </div>
+                </div>
+              ) : (
+                <li>
+                  <Link
+                    className=" focus:outline-none text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                    onClick={() => {
+                      toggleAuthPopup();
+                    }}
+                    style={{ backgroundColor: "#F55839" }}
+                  >
+                    تسجيل الدخول
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
         </div>
@@ -116,9 +161,19 @@ const Navbar = () => {
           className={
             !nav
               ? "hidden "
-              : " absolute z-10 bg-[#5031a9] bg-opacity-70 font-bold top-0 left-0 w-full  h-screen flex flex-col justify-center items-center cursor-pointer"
+              : " absolute z-10 bg-[#5031a9] bg-opacity-70 font-bold top-0 left-0 w-full h-screen flex flex-col justify-center items-center cursor-pointer"
           }
         >
+          {currentUser && (
+            <div className="dropdown mb-8">
+              <h6 className=" text-4xl">{name}</h6>
+              <BsPersonCircle className="mx-1 mt-1 text-4xl" />
+              <AiOutlineDown className=" mt-1 text-4xl" />
+              <div className="dropdown-content " onClick={handleLogout}>
+                <p >تسجيل الخروج</p>
+              </div>
+            </div>
+          )}
           <li className="mt-8">
             <div id="darkmode">
               <input
@@ -173,9 +228,24 @@ const Navbar = () => {
           <li>
             <Button togglePopup={togglePopup} />
           </li>
+          {!currentUser && (
+            <li>
+              <button
+                type="button"
+                className="mt-10  focus:outline-none text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                onClick={() => {
+                  toggleAuthPopup();
+                }}
+                style={{ backgroundColor: "#F55839" }}
+              >
+                تسجيل الدخول
+              </button>
+            </li>
+          )}
         </ul>
       </nav>
       {showPopup ? <Popup closePopup={togglePopup} /> : null}
+      {showAuthPopup ? <LoginPopup closePopup={toggleAuthPopup} /> : null}
     </div>
   );
 };
