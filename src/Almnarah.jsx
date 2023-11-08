@@ -11,11 +11,8 @@ import { useSelector } from "react-redux";
 function Almnarah() {
   const { mode } = useSelector((state) => state.darkMode);
   const [view, setView] = useState(0);
-
- 
   return (
     <>
-
       <div className={mode ? "m-dark" : "m-light"}>
         <Home />
         <Projects />
