@@ -76,7 +76,7 @@ input {
 .discount{
   text-decoration: line-through;
   text-decoration-color:black;
-  text-decoration-style: double;
+  text-decoration-skip: unset;
 }
 @media screen and (max-width: 1142px) {
   .popup-headerr {
