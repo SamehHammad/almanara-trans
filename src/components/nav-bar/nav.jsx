@@ -8,7 +8,7 @@ import { BsMoonStarsFill, BsFillSunFill, BsPersonCircle } from "react-icons/bs";
 import { AiOutlineDown } from "react-icons/ai";
 
 import "./navbar.css";
-import Popup from "../Skills/Popup";
+import Popup from "../Popup/Popup";
 import cars from "../assets/almanara/logo.png";
 import LoginPopup from "../SignInUp/LoginPopup";
 import { useAuth } from "../Context/AuthContext";
@@ -20,6 +20,7 @@ const Navbar = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [name, setName] = useState("");
   const [showAuthPopup, setShowAuthPopup] = useState(false);
+  
   const togglePopup = (e) => {
     setShowPopup(!showPopup);
   };
@@ -170,7 +171,7 @@ const Navbar = () => {
               <BsPersonCircle className="mx-1 mt-1 text-4xl" />
               <AiOutlineDown className=" mt-1 text-4xl" />
               <div className="dropdown-content " onClick={handleLogout}>
-                <p >تسجيل الخروج</p>
+                <p>تسجيل الخروج</p>
               </div>
             </div>
           )}

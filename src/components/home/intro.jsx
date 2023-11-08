@@ -82,14 +82,14 @@ const Intro = () => {
               </li>{" "}
               <li>
                 <a
-                  href="https://wa.me/01070460591"
+                  href="https://wa.me/01102226225"
                   style={{ color: mode ? "#FACC15" : "#E01E5B" }}
                 >
                   <i
                     className="fa-brands fa-whatsapp text-4xl mx-1 cursor-pointer  whats-icon text-success"
                     style={{ color: mode ? "#FACC15" : "#E01E5B" }}
                   ></i>
-                  01070460591
+                  01102226225
                 </a>
               </li>
             </ul>

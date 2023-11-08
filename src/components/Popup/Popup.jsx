@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { useState, useRef, useEffect } from "react";
 import html2canvas from "html2canvas";
 import emailjs from "@emailjs/browser";
+import { useNavigate } from "react-router-dom";
 const Popup = ({ closePopup }) => {
   const printRef = useRef();
   const { mode } = useSelector((state) => state.darkMode);
@@ -24,6 +25,8 @@ const Popup = ({ closePopup }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [orders, setOrders] = useState([]);
   const [localorders, setLocalOrders] = useState([]);
+  const navigate=useNavigate()
+ 
   const clearInputs = () => {
     setName("");
     setFirstDr("");
@@ -36,6 +39,10 @@ const Popup = ({ closePopup }) => {
     setWinshDown(false);
     setMobile("");
   };
+  const closeThePopup = () => {
+    navigate("/")
+    closePopup()
+  }
   const confirmBook = async () => {
     const newOrder = {
       name,
@@ -79,7 +86,7 @@ const Popup = ({ closePopup }) => {
 
     //   clearInputs();
     // } catch (error) {}
-    closePopup();
+    closeThePopup();
   };
   const handleValue = (e) => {
     if (name) {
@@ -110,7 +117,7 @@ const Popup = ({ closePopup }) => {
   const deleteOrders = () => {
     localStorage.removeItem("orders");
     Swal.fire("تم حذف الأوردر بنجاح");
-    closePopup();
+    closeThePopup();
   };
   const updateOrders = () => {
     setLocalOrders([]);
@@ -181,7 +188,7 @@ const Popup = ({ closePopup }) => {
       <div dir="rtl" className="popup">
         <div dir="rtl" className="popup_inner text-center">
           <AiFillCloseCircle
-            onClick={closePopup}
+            onClick={closeThePopup}
             dir="rtl"
             className="close-btn-popup"
           />
@@ -296,7 +303,7 @@ const Popup = ({ closePopup }) => {
         <div dir="rtl" className="popup">
           <div dir="rtl" className="popup_inner text-center">
             <AiFillCloseCircle
-              onClick={closePopup}
+              onClick={closeThePopup}
               dir="rtl"
               className="close-btn-popup"
             />
@@ -601,7 +608,7 @@ const Popup = ({ closePopup }) => {
         <div dir="rtl" className="popup">
           <div dir="rtl" className="popup_inner text-center">
             <AiFillCloseCircle
-              onClick={closePopup}
+              onClick={closeThePopup}
               dir="rtl"
               className="close-btn-popup"
             />

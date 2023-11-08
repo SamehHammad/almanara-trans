@@ -16,7 +16,7 @@ import wnsh from "../assets/almanara/slider/wnsh.jpg";
 import fakk from "../assets/almanara/slider/fakk.jpg";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import Popup from "./Popup";
+import Popup from "../Popup/Popup";
 
 export default function Skills() {
   const { mode } = useSelector((state) => state.darkMode);
@@ -114,9 +114,10 @@ export default function Skills() {
                     }}
                   >
                     إحجز الان
-                    <span className="orders-num">{orders?.length ? orders?.length : 0}</span>
+                    <span className="orders-num">
+                      {orders?.length ? orders?.length : 0}
+                    </span>
                   </button>
-                  
                 </Card.Body>
               </Card>
             </SwiperSlide>
