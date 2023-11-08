@@ -73,6 +73,11 @@ input {
   padding: 5px;
   font-size: 12px;
 }
+.discount{
+  text-decoration: line-through;
+  text-decoration-color:black;
+  text-decoration-style: double;
+}
 @media screen and (max-width: 1142px) {
   .popup-headerr {
     font-size: 12px;
@@ -92,5 +97,6 @@ input {
   }
   .recipe-cont h5 span {
     background-color: rgba(0, 0, 0, 0.452);
+    margin: 0 !important;
   }
 }

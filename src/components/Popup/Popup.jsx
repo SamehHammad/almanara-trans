@@ -88,6 +88,9 @@ const Popup = ({ closePopup }) => {
     // } catch (error) {}
     closeThePopup();
   };
+  const roundN100 = (num) => {
+    return Math.round(num / 100) * 100;
+  };
   const handleValue = (e) => {
     if (name) {
       emailjs
@@ -147,12 +150,12 @@ const Popup = ({ closePopup }) => {
   const calcPrice = () => {
     const totalDr = Number(firstDr) + Number(secondDr);
     setTotalPrice(
-      1700 +
+      1900 +
         (totalDr > 5 ? (totalDr - 5) * 150 : 0) +
-        (Number(dishCov) > 0 ? Number(dishCov) * 50 : 0) +
-        (winshUp ? 1000 : 0) +
-        (winshDown ? 1000 : 0) +
-        (Number(roomsCov) > 0 ? Number(roomsCov) * 250 : 0)
+        (Number(dishCov) > 0 ? Number(dishCov) * 70 : 0) +
+        (winshUp ? 1100 : 0) +
+        (winshDown ? 1100 : 0) +
+        (Number(roomsCov) > 0 ? Number(roomsCov) * 400 : 0)
     );
   };
   const handleDownloadImage = async () => {
@@ -271,10 +274,33 @@ const Popup = ({ closePopup }) => {
                     التنزيل بالونش :{" "}
                     <span>{localorders[0].winshDown ? "نعم" : "لا"}</span>
                   </p>
+                  <p className="nn">
+                    الخصم : <span>15%</span>
+                  </p>
                 </div>
               </div>
-              <p className="nn" style={{ color: "black", marginTop: "20px" }}>
-                إجمالي الحساب : <span>{localorders[0].totalPrice} جنيه</span>
+              <p className="nn" style={{ color: "black", marginTop: "5px" }}>
+                إجمالي الحساب بعد الخصم :{" "}
+                <span>
+                  {roundN100(
+                    localorders[0].totalPrice > 2500
+                      ? (localorders[0].totalPrice * 85) / 100
+                      : (localorders[0].totalPrice * 91) / 100
+                  )}{" "}
+                  جنيه
+                </span>
+              </p>
+              <p className="nn" style={{ color: "black", marginTop: "5px" }}>
+                بدلا من :{" "}
+                <span className="discount">
+                  {roundN100(
+                    localorders[0].totalPrice < 2500
+                      ? localorders[0].totalPrice +
+                          (localorders[0].totalPrice * 6) / 100
+                      : localorders[0].totalPrice
+                  )}{" "}
+                  جنيه
+                </span>
               </p>
               <div className="order-btns">
                 <button
@@ -669,9 +695,38 @@ const Popup = ({ closePopup }) => {
                     <p className="nn">
                       التنزيل بالونش : <span>{winshDown ? "نعم" : "لا"}</span>
                     </p>
+                    <p className="nn">
+                      الخصم: <span>15%</span>
+                    </p>
                   </div>
-                  <p className="nn" style={{ color: "black", margin: "20px" }}>
-                    إجمالي الحساب : <span>{totalPrice} جنيه</span>
+
+                  <p
+                    className="nn"
+                    style={{ color: "black", marginTop: "5px" }}
+                  >
+                    إجمالي الحساب بعد الخصم :{" "}
+                    <span>
+                      {roundN100(
+                        totalPrice > 2500
+                          ? (totalPrice * 85) / 100
+                          : (totalPrice * 91) / 100
+                      )}{" "}
+                      جنيه
+                    </span>
+                  </p>
+                  <p
+                    className="nn"
+                    style={{ color: "black", marginTop: "5px" }}
+                  >
+                    بدلا من :{" "}
+                    <span className="discount">
+                      {roundN100(
+                        totalPrice < 2500
+                          ? totalPrice + (totalPrice * 6) / 100
+                          : totalPrice
+                      )}{" "}
+                      جنيه
+                    </span>
                   </p>
                 </div>
 
