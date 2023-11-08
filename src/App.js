@@ -101,8 +101,8 @@ function App() {
       <div className={mode ? "m-dark" : "m-light"}>
         <Navbar />
         <Routes>
-          <Route element={<Almnarah />} path="/" />
-          <Route element={<Popup />} path="/order" />
+          <Route element={<Almnarah />} path="/almanara-trans/" />
+          <Route element={<Popup />} path="/almanara-trans/order" />
         </Routes>
       </div>
     </>

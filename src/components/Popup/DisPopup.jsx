@@ -40,7 +40,7 @@ const DisPopup = ({ closePopup }) => {
     setMobile("");
   };
   const closeThePopup = () => {
-    navigate("/");
+    navigate("/almanara-trans/");
     closePopup();
   };
   const confirmBook = async () => {
