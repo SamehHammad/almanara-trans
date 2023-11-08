@@ -194,7 +194,7 @@ const NoDiscountPopup = ({ closePopup }) => {
             <div dir="rtl" className="h-screen flex flex-col ">
               <div dir="rtl" className=" pt-0">
                 <div dir="rtl" className="text-center flex justify-center">
-                  <img src={logo} alt="almanara" width={100} />
+                  <img src={logo} alt="almanara" width={50} />
                   <p
                     dir="rtl"
                     className="text-2xl font-bold inline border-b-4 border-yellow-400 text-center popup-header  "

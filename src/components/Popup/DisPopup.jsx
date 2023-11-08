@@ -204,7 +204,7 @@ const DisPopup = ({ closePopup }) => {
             <div dir="rtl" className="h-screen flex flex-col ">
               <div dir="rtl" className=" pt-0">
                 <div dir="rtl" className="text-center flex justify-center">
-                  <img src={logo} alt="almanara" width={100} />
+                  <img src={logo} alt="almanara" width={80} />
                   <p
                     dir="rtl"
                     className="text-2xl font-bold inline border-b-4 border-yellow-400 text-center popup-header  "
@@ -279,7 +279,7 @@ const DisPopup = ({ closePopup }) => {
                   </p>
                 </div>
               </div>
-              <p className="nn" style={{ color: "black", marginTop: "5px" }}>
+              <p className="nn" style={{ color: "black"}}>
                 إجمالي الحساب بعد الخصم :{" "}
                 <span>
                   {roundN100(
@@ -290,7 +290,7 @@ const DisPopup = ({ closePopup }) => {
                   جنيه
                 </span>
               </p>
-              <p className="nn" style={{ color: "black", marginTop: "5px" }}>
+              <p className="nn" style={{ color: "black"}}>
                 بدلا من :{" "}
                 <span className="discount">
                   {roundN100(
@@ -647,7 +647,7 @@ const DisPopup = ({ closePopup }) => {
               <div dir="rtl" className="h-screen flex flex-col ">
                 <div dir="rtl" className=" pt-0" ref={printRef}>
                   <div dir="rtl" className="text-center flex justify-center">
-                    <img src={logo} alt="almanara" width={110} />
+                    <img src={logo} alt="almanara" width={80} />
                     <p
                       dir="rtl"
                       className="text-2xl font-bold inline border-b-4 border-yellow-400 text-center popup-header  "
@@ -702,7 +702,7 @@ const DisPopup = ({ closePopup }) => {
 
                   <p
                     className="nn"
-                    style={{ color: "black", marginTop: "5px" }}
+                    style={{ color: "black"}}
                   >
                     إجمالي الحساب بعد الخصم :{" "}
                     <span>
@@ -716,7 +716,7 @@ const DisPopup = ({ closePopup }) => {
                   </p>
                   <p
                     className="nn"
-                    style={{ color: "black", marginTop: "5px" }}
+                    style={{ color: "black"}}
                   >
                     بدلا من :{" "}
                     <span className="discount">
