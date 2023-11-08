@@ -25,8 +25,8 @@ const Popup = ({ closePopup }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [orders, setOrders] = useState([]);
   const [localorders, setLocalOrders] = useState([]);
-  const navigate=useNavigate()
- 
+  const navigate = useNavigate();
+
   const clearInputs = () => {
     setName("");
     setFirstDr("");
@@ -40,9 +40,9 @@ const Popup = ({ closePopup }) => {
     setMobile("");
   };
   const closeThePopup = () => {
-    navigate("/")
-    closePopup()
-  }
+    navigate("/");
+    closePopup();
+  };
   const confirmBook = async () => {
     const newOrder = {
       name,
@@ -319,10 +319,10 @@ const Popup = ({ closePopup }) => {
                     <img src={logo} alt="almanara" width={100} />
                     <p
                       dir="rtl"
-                      className="text-2xl font-bold inline border-b-4 border-yellow-400 text-left popup-header  "
-                      style={{ color: "black" }}
+                      className=" border-b-4 border-yellow-400 text-left popup-headerr  "
+                      style={{ color: "black", display: "block" }}
                     >
-                      إحجز أوردرك الآن
+                      إحجز الان واستمتع بخصم 15% من السبت إالي الخميس
                     </p>
                   </div>
                 </div>
