@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import Navbar from "./components/nav-bar/nav";
-
+import { Route, Routes, HashRouter } from "react-router-dom";
 import "./App.css";
 import Aos from "aos";
 import "aos/dist/aos.css";
@@ -9,7 +9,6 @@ import { loadFull } from "tsparticles";
 import Particles from "react-particles";
 import axios from "axios";
 import Almnarah from "./Almnarah";
-import { Route, Routes } from "react-router-dom";
 import Popup from "./components/Popup/Popup";
 
 function App() {
@@ -20,10 +19,11 @@ function App() {
     Aos.init();
     Aos.refresh();
   }, []);
+
   useEffect(() => {
     axios
       .get("https://api.countapi.xyz/update/sameh-portfolio/counter/?amount=1")
-      .then(function(response) {
+      .then(function (response) {
         setView(response.data.value);
       });
   }, []);
@@ -90,22 +90,25 @@ function App() {
     },
   };
 
+
   const particlesInit = useCallback(async (engine) => {
     await loadFull(engine);
   }, []);
 
   return (
-    <>
-      <Particles options={options} init={particlesInit} />
+    
+      <>
+        <Particles options={options} init={particlesInit} />
 
-      <div className={mode ? "m-dark" : "m-light"}>
-        <Navbar />
-        <Routes>
-          <Route element={<Almnarah />} path="/almanara-trans/" />
-          <Route element={<Popup />} path="/almanara-trans/order" />
-        </Routes>
-      </div>
-    </>
+        <div className={mode ? "m-dark" : "m-light"}>
+          <Navbar />
+          <Routes>
+            <Route element={<Almnarah />} path="/" />
+            <Route element={<Popup />} path="/order" />
+          </Routes>
+        </div>
+      </>
+   
   );
 }
 
