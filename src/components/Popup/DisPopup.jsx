@@ -89,7 +89,7 @@ const DisPopup = ({ closePopup }) => {
     closeThePopup();
   };
   const roundN100 = (num) => {
-    return Math.round(num / 100) * 100;
+    return Math.round(num / 50) * 50;
   };
   const handleValue = (e) => {
     if (name) {
@@ -150,12 +150,12 @@ const DisPopup = ({ closePopup }) => {
   const calcPrice = () => {
     const totalDr = Number(firstDr) + Number(secondDr);
     setTotalPrice(
-      1900 +
+      2000 +
         (totalDr > 5 ? (totalDr - 5) * 200 : 0) +
-        (Number(dishCov) > 0 ? Number(dishCov) * 70 : 0) +
+        (Number(dishCov) > 0 ? Number(dishCov) * 250 : 0) +
         (winshUp ? 1200 : 0) +
         (winshDown ? 1200 : 0) +
-        (Number(roomsCov) > 0 ? Number(roomsCov) * 450 : 0)
+        (Number(roomsCov) > 0 ? Number(roomsCov) * 500 : 0)
     );
   };
   const handleDownloadImage = async () => {
@@ -198,7 +198,7 @@ const DisPopup = ({ closePopup }) => {
           <div
             name="Contact"
             dir="rtl"
-            className="text-white cotainer max-w-[1000px] mx-auto  flex flex-col"
+            className="text-white max-w-[1000px] mx-auto  flex flex-col"
             data-aos-anchor-placement="fade-right"
           >
             <div dir="rtl" className="h-screen flex flex-col ">
@@ -216,7 +216,7 @@ const DisPopup = ({ closePopup }) => {
                 <div
                   style={{
                     backgroundColor: "#255266",
-                    width: "70%",
+                    width: "100%",
                     margin: "auto",
                   }}
                 >
@@ -255,31 +255,31 @@ const DisPopup = ({ closePopup }) => {
                     </span>
                   </p>
                   <p className="nn">
-                    عدد الكراتين :{" "}
+                   عدد الغرف فك وتركيب :{" "}
                     <span>
                       {localorders[0].dishCov ? localorders[0].dishCov : 0}
                     </span>
                   </p>
                   <p className="nn">
-                    عدد الغرف المراد تغليفها :{" "}
+                    عدد التكييفات فك وتركيب :{" "}
                     <span>
                       {localorders[0].roomsCov ? localorders[0].roomsCov : 0}
                     </span>
-                  </p>
-                  <p className="nn">
-                    التطليع بالونش :{" "}
-                    <span>{localorders[0].winshUp ? "نعم" : "لا"}</span>
                   </p>
                   <p className="nn">
                     التنزيل بالونش :{" "}
                     <span>{localorders[0].winshDown ? "نعم" : "لا"}</span>
                   </p>
                   <p className="nn">
+                    التطليع بالونش :{" "}
+                    <span>{localorders[0].winshUp ? "نعم" : "لا"}</span>
+                  </p>
+                  <p className="nn">
                     الخصم : <span>15%</span>
                   </p>
                 </div>
               </div>
-              <p className="nn" style={{ color: "black"}}>
+              <p className="nn" style={{ color: "black" }}>
                 إجمالي الحساب بعد الخصم :{" "}
                 <span>
                   {roundN100(
@@ -290,7 +290,7 @@ const DisPopup = ({ closePopup }) => {
                   جنيه
                 </span>
               </p>
-              <p className="nn" style={{ color: "black"}}>
+              <p className="nn" style={{ color: "black" }}>
                 بدلا من :{" "}
                 <span className="discount">
                   {roundN100(
@@ -336,7 +336,7 @@ const DisPopup = ({ closePopup }) => {
             <div
               name="Contact"
               dir="rtl"
-              className="text-white cotainer max-w-[1000px] mx-auto  flex flex-col"
+              className="text-white max-w-[1000px] mx-auto  flex flex-col"
               data-aos-anchor-placement="fade-right"
             >
               <div dir="rtl" className="h-screen flex flex-col ">
@@ -506,31 +506,7 @@ const DisPopup = ({ closePopup }) => {
                         </label>
                       </div>
                       <label dir="rtl" className=" ">
-                        كم غرفه تريد تغليفها؟
-                        <input
-                          onChange={(e) => setRoomsCov(e.target.value)}
-                          value={roomsCov}
-                          name="roomsCov"
-                          type="number"
-                          dir="rtl"
-                          className="
-                      h-8
-                      px-5
-                
-                ddd
-                border-gray-300
-                rounded-md
-                shadow-sm
-                focus:border-indigo-300
-                focus:ring
-                focus:ring-indigo-200
-                w-full
-              "
-                          placeholder="تغليف الأثاث"
-                        />
-                      </label>
-                      <label dir="rtl" className=" ">
-                        كم كرتونه للصيني والزجاج ؟
+                        كم غرفه تريد فكها وتركيبها ؟
                         <input
                           onChange={(e) => setDishCov(e.target.value)}
                           value={dishCov}
@@ -550,9 +526,34 @@ const DisPopup = ({ closePopup }) => {
                 focus:ring-indigo-200
                 w-full
               "
-                          placeholder=" تغليف الصيني "
+                          placeholder=" عدد الغرف  "
                         />
                       </label>
+                      <label dir="rtl" className=" ">
+                        كم تكييف تريد فكه وتركيبه؟
+                        <input
+                          onChange={(e) => setRoomsCov(e.target.value)}
+                          value={roomsCov}
+                          name="roomsCov"
+                          type="number"
+                          dir="rtl"
+                          className="
+                      h-8
+                      px-5
+                
+                ddd
+                border-gray-300
+                rounded-md
+                shadow-sm
+                focus:border-indigo-300
+                focus:ring
+                focus:ring-indigo-200
+                w-full
+              "
+                          placeholder="عدد التكييفات"
+                        />
+                      </label>
+
                       <div dir="rtl" className="doooor">
                         <label dir="rtl" className=" ">
                           <span>التنزيل بالونش</span>
@@ -641,7 +642,7 @@ const DisPopup = ({ closePopup }) => {
             <div
               name="Contact"
               dir="rtl"
-              className="text-white cotainer max-w-[1000px] mx-auto  flex flex-col"
+              className="text-white max-w-[1000px] mx-auto  flex flex-col"
               data-aos-anchor-placement="fade-right"
             >
               <div dir="rtl" className="h-screen flex flex-col ">
@@ -659,7 +660,7 @@ const DisPopup = ({ closePopup }) => {
                   <div
                     style={{
                       backgroundColor: "#255266",
-                      width: "70%",
+                      width: "100%",
                       margin: "auto",
                     }}
                   >
@@ -683,27 +684,24 @@ const DisPopup = ({ closePopup }) => {
                       إلي الدور : <span>{secondDr ? secondDr : 0}</span>
                     </p>
                     <p className="nn">
-                      عدد الكراتين : <span>{dishCov ? dishCov : 0}</span>
+                     عدد الغرف فك وتركيب : <span>{dishCov ? dishCov : 0}</span>
                     </p>
                     <p className="nn">
-                      عدد الغرف المراد تغليفها :{" "}
+                      عدد التكييفات فك وتركيب :{" "}
                       <span>{roomsCov ? roomsCov : 0}</span>
                     </p>
                     <p className="nn">
-                      التطليع بالونش : <span>{winshUp ? "نعم" : "لا"}</span>
+                      التنزيل بالونش : <span>{winshDown ? "نعم" : "لا"}</span>
                     </p>
                     <p className="nn">
-                      التنزيل بالونش : <span>{winshDown ? "نعم" : "لا"}</span>
+                      التطليع بالونش : <span>{winshUp ? "نعم" : "لا"}</span>
                     </p>
                     <p className="nn">
                       الخصم: <span>15%</span>
                     </p>
                   </div>
 
-                  <p
-                    className="nn"
-                    style={{ color: "black"}}
-                  >
+                  <p className="nn" style={{ color: "black" }}>
                     إجمالي الحساب بعد الخصم :{" "}
                     <span>
                       {roundN100(
@@ -714,10 +712,7 @@ const DisPopup = ({ closePopup }) => {
                       جنيه
                     </span>
                   </p>
-                  <p
-                    className="nn"
-                    style={{ color: "black"}}
-                  >
+                  <p className="nn" style={{ color: "black" }}>
                     بدلا من :{" "}
                     <span className="discount">
                       {roundN100(
