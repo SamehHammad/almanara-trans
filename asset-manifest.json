@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/almanara-trans/static/css/main.1b790a16.css",
-    "main.js": "/almanara-trans/static/js/main.6c8d4363.js",
+    "main.js": "/almanara-trans/static/js/main.0b4c7f80.js",
     "static/js/787.0e728f02.chunk.js": "/almanara-trans/static/js/787.0e728f02.chunk.js",
     "static/media/Sameh Hammad_CV.pdf": "/almanara-trans/static/media/Sameh Hammad_CV.be8e1324a7f0da4705d3.pdf",
     "static/media/manara.png": "/almanara-trans/static/media/manara.1ce86d02554ffea4fd0a.png",
@@ -18,11 +18,11 @@
     "static/media/intro-car.jpg": "/almanara-trans/static/media/intro-car.f9eecca68a3a30c0d743.jpg",
     "index.html": "/almanara-trans/index.html",
     "main.1b790a16.css.map": "/almanara-trans/static/css/main.1b790a16.css.map",
-    "main.6c8d4363.js.map": "/almanara-trans/static/js/main.6c8d4363.js.map",
+    "main.0b4c7f80.js.map": "/almanara-trans/static/js/main.0b4c7f80.js.map",
     "787.0e728f02.chunk.js.map": "/almanara-trans/static/js/787.0e728f02.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1b790a16.css",
-    "static/js/main.6c8d4363.js"
+    "static/js/main.0b4c7f80.js"
   ]
 }
