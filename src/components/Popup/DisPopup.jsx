@@ -7,11 +7,15 @@ import { useState, useRef, useEffect } from "react";
 import html2canvas from "html2canvas";
 import emailjs from "@emailjs/browser";
 import { useNavigate } from "react-router-dom";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 const DisPopup = ({ closePopup }) => {
   const printRef = useRef();
   const { mode } = useSelector((state) => state.darkMode);
   const form = useRef();
   const [name, setName] = useState("");
+  const [startDate, setStartDate] = useState(new Date());
   const [firstDr, setFirstDr] = useState();
   const [secondDr, setSecondDr] = useState();
   const [dishCov, setDishCov] = useState();
@@ -43,6 +47,10 @@ const DisPopup = ({ closePopup }) => {
     navigate("/");
     closePopup();
   };
+  const formatDate = (date) => {
+    const options = { year: "numeric", month: "numeric", day: "numeric" };
+    return new Intl.DateTimeFormat("en-US", options).format(date);
+  };
   const confirmBook = async () => {
     const newOrder = {
       name,
@@ -56,36 +64,14 @@ const DisPopup = ({ closePopup }) => {
       winshDown,
       mobile,
       totalPrice,
+      startDate: formatDate(startDate), // Format the date before saving to localStorage
     };
 
     orders.push(newOrder);
     localStorage.setItem("orders", JSON.stringify(orders));
     handleDownloadImage();
     Swal.fire("تم تأكيد الأوردر بنجاح");
-    // try {
-    //   const response = await axios.get("http://localhost:3003/orders");
-    //   const orders = response.data;
 
-    //   if (orders.some((order) => order.name === name)) {
-    //     Swal.fire( "هذا الأوردر موجود من قبل");
-    //   } else {
-    //     await axios.post("http://localhost:3003/orders", {
-    //       name,
-    //       fromLocation,
-    //       toLocation,
-    //       firstDr,
-    //       secondDr,
-    //       dishCov,
-    //       roomsCov,
-    //       winshUp,
-    //       winshDown,
-    //       mobile,
-    //       totalPrice,
-    //     });
-    //   }
-
-    //   clearInputs();
-    // } catch (error) {}
     closeThePopup();
   };
   const roundN100 = (num) => {
@@ -170,15 +156,6 @@ const DisPopup = ({ closePopup }) => {
       link.download = `order-${name}.png`;
 
       document.body.appendChild(link);
-      // try {
-      //   const { fileUrl } = await upload.uploadFile(link, {
-      //     onProgress: ({ progress }) =>
-      //       console.log(`${Number(progress)}% complete`),
-      //   });
-      //   console.log(`File uploaded!\n${fileUrl}`);
-      // } catch (e) {
-      //   alert(`Error!\n${e.message}`);
-      // }
       link.click();
       document.body.removeChild(link);
     } else {
@@ -192,7 +169,6 @@ const DisPopup = ({ closePopup }) => {
         <div dir="rtl" className="popup_inner text-center">
           <AiFillCloseCircle
             onClick={closeThePopup}
-            dir="rtl"
             className="close-btn-popup"
           />
           <div
@@ -202,7 +178,7 @@ const DisPopup = ({ closePopup }) => {
             data-aos-anchor-placement="fade-right"
           >
             <div dir="rtl" className="h-screen flex flex-col ">
-              <div dir="rtl" className=" pt-0">
+              <div dir="rtl" className=" pt-0 ">
                 <div dir="rtl" className="text-center flex justify-center">
                   <img src={logo} alt="almanara" width={80} />
                   <p
@@ -220,63 +196,116 @@ const DisPopup = ({ closePopup }) => {
                     margin: "auto",
                   }}
                 >
-                  <p className="nn">
-                    الإســم : <span>{localorders[0].name}</span>
-                  </p>
-                  <p className="nn">
-                    رقم الموبايل : <span>{localorders[0].mobile}</span>
-                  </p>
-                  <p className="nn">
-                    مــن :{" "}
-                    <span>
-                      {localorders[0].fromLocation
-                        ? localorders[0].fromLocation
-                        : "القاهره"}
-                    </span>
-                  </p>
-                  <p className="nn">
-                    إلــي :{" "}
-                    <span>
-                      {localorders[0].toLocation
-                        ? localorders[0].toLocation
-                        : "القاهره"}
-                    </span>
-                  </p>
-                  <p className="nn">
-                    من الدور :{" "}
-                    <span>
-                      {localorders[0].firstDr ? localorders[0].firstDr : 0}
-                    </span>
-                  </p>
-                  <p className="nn">
-                    إلي الدور :{" "}
-                    <span>
-                      {localorders[0].secondDr ? localorders[0].secondDr : 0}
-                    </span>
-                  </p>
-                  <p className="nn">
-                   عدد الغرف فك وتركيب :{" "}
-                    <span>
-                      {localorders[0].dishCov ? localorders[0].dishCov : 0}
-                    </span>
-                  </p>
-                  <p className="nn">
-                    عدد التكييفات فك وتركيب :{" "}
-                    <span>
-                      {localorders[0].roomsCov ? localorders[0].roomsCov : 0}
-                    </span>
-                  </p>
-                  <p className="nn">
-                    التنزيل بالونش :{" "}
-                    <span>{localorders[0].winshDown ? "نعم" : "لا"}</span>
-                  </p>
-                  <p className="nn">
-                    التطليع بالونش :{" "}
-                    <span>{localorders[0].winshUp ? "نعم" : "لا"}</span>
-                  </p>
-                  <p className="nn">
+                  <h1 className="mnarah">شركة المناره لنقل الأثاث </h1>
+                  <div className="doooor">
+                    <p className="dd nn">
+                      الإســم : <span>{localorders[0].name}</span>
+                    </p>
+                    <p className="nn dd">
                     الخصم : <span>15%</span>
                   </p>
+                  </div>
+                  <div className="doooor">
+                    <p className="nn dd">
+                      رقم الموبايل : <span>{localorders[0].mobile}</span>
+                    </p>
+                    <p className="dd nn">
+                      اليوم : <span>{localorders[0].startDate}</span>
+                    </p>
+                  </div>
+                  <div className="doooor">
+                    <p className="nn dd">
+                      مــن منطقة :{" "}
+                      <span>
+                        {localorders[0].fromLocation
+                          ? localorders[0].fromLocation
+                          : "القاهره"}
+                      </span>
+                    </p>
+
+                    <p className="nn dd">
+                      إلــي منطقة:
+                      <span>
+                        {localorders[0].toLocation
+                          ? localorders[0].toLocation
+                          : "القاهره"}
+                      </span>
+                    </p>
+                  </div>
+                  <div className="doooor">
+                    <p className="nn dd">
+                      من الدور :{" "}
+                      <span>
+                        {localorders[0].firstDr ? localorders[0].firstDr : 0}
+                      </span>
+                    </p>
+                    <p className="nn dd">
+                      إلي الدور :{" "}
+                      <span>
+                        {localorders[0].secondDr ? localorders[0].secondDr : 0}
+                      </span>
+                    </p>
+                  </div>
+                  <div className="doooor">
+                    <p className="nn dd">
+                      عدد غرف النجارة :{" "}
+                      <span>
+                        {localorders[0].dishCov ? localorders[0].dishCov : 0}
+                      </span>
+                    </p>
+                    <p className="nn dd">
+                      عدد التكييفات :
+                      <span>
+                        {localorders[0].roomsCov ? localorders[0].roomsCov : 0}
+                      </span>
+                    </p>
+                  </div>
+                  <div className="doooor">
+                    <p className="nn dd">
+                      التنزيل بالونش :{" "}
+                      <span>{localorders[0].winshDown ? "نعم" : "لا"}</span>
+                    </p>
+                    <p className="nn dd">
+                      التطليع بالونش :{" "}
+                      <span>{localorders[0].winshUp ? "نعم" : "لا"}</span>
+                    </p>
+                  </div>
+                  
+                  <div className="whatsapp text-right mr-2 mt-3">
+                    <ul >
+                      <hr style={{width:"70%"}}></hr>
+                      <h1 style={{ color: "#fff" }} className="text-success mt-1">
+                        يمكنك التواصل مع المناره علي الواتس اب علي هذه الأرقام
+                            </h1>
+                            <div className="doooor">
+
+                      <li className="nn">
+                        <a className="text-success"
+                          href="https://wa.me/01102226225"
+                          style={{ color: "#77dd77" }}
+                        >
+                          <i
+                            className="fa-brands fa-whatsapp text-4xl mx-1 cursor-pointer  whats-icon text-success"
+                            style={{ color: "#77dd77" }}
+                          ></i>
+                          01102226225
+                        </a>
+                      </li>
+                      <li className="nn">
+                        <a className="text-success"
+                          href="https://wa.me/01112967597"
+                          style={{ color: "#77dd77" }}
+                        >
+                          <i
+                            className="fa-brands fa-whatsapp text-4xl mx-1 cursor-pointer  whats-icon text-success"
+                            style={{ color: "#77dd77" }}
+                          ></i>
+                          01112967597
+                        </a>
+                      </li>
+                            </div>
+                    </ul>
+                  </div>
                 </div>
               </div>
               <p className="nn" style={{ color: "black" }}>
@@ -348,32 +377,33 @@ const DisPopup = ({ closePopup }) => {
                       className=" border-b-4 border-yellow-400 text-left popup-headerr  "
                       style={{ color: "black", display: "block" }}
                     >
-                      إحجز الان واستمتع بخصم 15% من السبت إالي الخميس
+                      إحجز الان واستمتع بخصم 15% من الإثنين إالي الخميس
                     </p>
                   </div>
                 </div>
                 <div dir="rtl" className="w-full md:w-96 md:max-w-full mx-auto">
                   <div
                     dir="rtl"
-                    className="p-6 border border-gray-300 sm:rounded-md"
+                    className="p-2 border border-gray-300 sm:rounded-md"
                     style={{
                       backgroundColor: mode ? "#BDBBB8" : "#252E42",
                       color: mode ? "black" : "white",
                     }}
                   >
                     <form ref={form} onSubmit={test}>
-                      <label dir="rtl" className=" mb-6 ">
-                        <input
-                          value={name}
-                          onChange={(e) => setName(e.target.value)}
-                          name="user_name"
-                          type="text"
-                          dir="rtl"
-                          className="
+                      <div className="doooor">
+                        <label dir="rtl" className="  ">
+                          <input
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            name="user_name"
+                            type="text"
+                            dir="rtl"
+                            className="
               h-8
               px-5
-                
-                w-full
+              dd
+               
                 border-gray-300
                 rounded-md
                 shadow-sm
@@ -382,21 +412,20 @@ const DisPopup = ({ closePopup }) => {
                 focus:ring-indigo-200
                 focus:ring-opacity-50
               "
-                          placeholder="إسمك"
-                        />
-                      </label>
-                      <label dir="rtl" className=" mb-6 ">
-                        <input
-                          value={mobile}
-                          onChange={(e) => setMobile(e.target.value)}
-                          name="mobile"
-                          type="number"
-                          dir="rtl"
-                          className="
+                            placeholder="إسمك"
+                          />
+                        </label>
+                        <label dir="rtl" className="  ">
+                          <input
+                            value={mobile}
+                            onChange={(e) => setMobile(e.target.value)}
+                            name="mobile"
+                            type="number"
+                            dir="rtl"
+                            className="
               h-8
               px-5
-                
-                w-full
+              dd
                 border-gray-300
                 rounded-md
                 shadow-sm
@@ -405,12 +434,20 @@ const DisPopup = ({ closePopup }) => {
                 focus:ring-indigo-200
                 focus:ring-opacity-50
               "
-                          placeholder="رقم الموبايل"
-                        />
-                      </label>
-
+                            placeholder="رقم الموبايل"
+                          />
+                        </label>
+                      </div>
+                      <label>يوم النقل : </label>
+                      <DatePicker
+                        selected={startDate}
+                        onChange={(date) => setStartDate(date)}
+                        showTimeSelect
+                        dateFormat="Pp"
+                        name="dateTime"
+                      />
                       <div dir="rtl" className="doooor">
-                        <label dir="rtl" className=" mb-6">
+                        <label dir="rtl" className=" ">
                           <input
                             onChange={(e) => setFromLocation(e.target.value)}
                             value={fromLocation}
@@ -433,7 +470,7 @@ const DisPopup = ({ closePopup }) => {
                             required
                           />
                         </label>
-                        <label dir="rtl" className=" mb-6">
+                        <label dir="rtl" className=" ">
                           <input
                             onChange={(e) => setToLocation(e.target.value)}
                             value={toLocation}
@@ -458,7 +495,7 @@ const DisPopup = ({ closePopup }) => {
                         </label>
                       </div>
                       <div dir="rtl" className="doooor">
-                        <label dir="rtl" className=" mb-6">
+                        <label dir="rtl" className=" ">
                           <input
                             onChange={(e) => setFirstDr(e.target.value)}
                             value={firstDr}
@@ -481,7 +518,7 @@ const DisPopup = ({ closePopup }) => {
                             required
                           />
                         </label>
-                        <label dir="rtl" className=" mb-6">
+                        <label dir="rtl" className=" ">
                           <input
                             onChange={(e) => setSecondDr(e.target.value)}
                             value={secondDr}
@@ -566,7 +603,7 @@ const DisPopup = ({ closePopup }) => {
                             className="winsh "
                           />
                         </label>
-                        <label dir="rtl" className=" mb-6">
+                        <label dir="rtl" className=" ">
                           <span>التطليع بالونش</span>
                           <input
                             onChange={(e) => setWinshUp(!winshUp)}
@@ -579,7 +616,7 @@ const DisPopup = ({ closePopup }) => {
                         </label>
                       </div>
 
-                      <div dir="rtl" className="mb-6  order-btns">
+                      <div dir="rtl" className="  order-btns">
                         <button
                           type="submit"
                           dir="rtl"
@@ -598,6 +635,7 @@ const DisPopup = ({ closePopup }) => {
                           حجز
                         </button>
                         {name ||
+                        startDate ||
                         firstDr ||
                         secondDr ||
                         dishCov ||
@@ -646,85 +684,154 @@ const DisPopup = ({ closePopup }) => {
               data-aos-anchor-placement="fade-right"
             >
               <div dir="rtl" className="h-screen flex flex-col ">
-                <div dir="rtl" className=" pt-0" ref={printRef}>
-                  <div dir="rtl" className="text-center flex justify-center">
-                    <img src={logo} alt="almanara" width={80} />
-                    <p
-                      dir="rtl"
-                      className="text-2xl font-bold inline border-b-4 border-yellow-400 text-center popup-header  "
-                      style={{ color: "black" }}
-                    >
-                      تفاصيل اللأوردر
-                    </p>
-                  </div>
-                  <div
-                    style={{
-                      backgroundColor: "#255266",
-                      width: "100%",
-                      margin: "auto",
-                    }}
-                  >
-                    <p className="nn">
-                      الإســم : <span>{name}</span>
-                    </p>
-                    <p className="nn">
-                      رقم الموبايل : <span>{mobile}</span>
-                    </p>
-                    <p className="nn">
-                      مــن :{" "}
-                      <span>{fromLocation ? fromLocation : "القاهره"}</span>
-                    </p>
-                    <p className="nn">
-                      إلــي : <span>{toLocation ? toLocation : "القاهره"}</span>
-                    </p>
-                    <p className="nn">
-                      من الدور : <span>{firstDr ? firstDr : 0}</span>
-                    </p>
-                    <p className="nn">
-                      إلي الدور : <span>{secondDr ? secondDr : 0}</span>
-                    </p>
-                    <p className="nn">
-                     عدد الغرف فك وتركيب : <span>{dishCov ? dishCov : 0}</span>
-                    </p>
-                    <p className="nn">
-                      عدد التكييفات فك وتركيب :{" "}
-                      <span>{roomsCov ? roomsCov : 0}</span>
-                    </p>
-                    <p className="nn">
-                      التنزيل بالونش : <span>{winshDown ? "نعم" : "لا"}</span>
-                    </p>
-                    <p className="nn">
-                      التطليع بالونش : <span>{winshUp ? "نعم" : "لا"}</span>
-                    </p>
-                    <p className="nn">
-                      الخصم: <span>15%</span>
-                    </p>
-                  </div>
+                <div ref={printRef}>
+                  <div className="reseat">
+                    <div dir="rtl" className=" pt-0">
+                      <div
+                        dir="rtl"
+                        className="text-center flex justify-center"
+                      >
+                        <img src={logo} alt="almanara" width={80} />
+                        <p
+                          dir="rtl"
+                          className="text-2xl font-bold inline border-b-4 border-yellow-400 text-center popup-header  "
+                          style={{ color: "black" }}
+                        >
+                          تفاصيل اللأوردر
+                        </p>
+                      </div>
+                      <div
+                        style={{
+                          backgroundColor: "#255266",
+                          width: "100%",
+                          margin: "auto",
+                        }}
+                      >
+                        <h1 className="mnarah">شركة المناره لنقل الأثاث </h1>
+                        <div className="doooor">
+                          <p className="dd nn">
+                            الإســم : <span>{name}</span>
+                          </p>
+                          <p className="nn dd">
+                          الخصم : <span>15%</span>
+                        </p>
+                        </div>
+                        <div className="doooor">
+                          <p className="nn dd">
+                            رقم الموبايل : <span>{mobile}</span>
+                          </p>
+                          <p className="dd nn">
+                            اليوم : <span>{formatDate(startDate)}</span>
+                          </p>
+                        </div>
+                        <div className="doooor">
+                          <p className="nn dd">
+                            مــن منطقة :{" "}
+                            <span>
+                              {fromLocation ? fromLocation : "القاهره"}
+                            </span>
+                          </p>
 
-                  <p className="nn" style={{ color: "black" }}>
-                    إجمالي الحساب بعد الخصم :{" "}
-                    <span>
-                      {roundN100(
-                        totalPrice > 2500
-                          ? (totalPrice * 85) / 100
-                          : (totalPrice * 93) / 100
-                      )}{" "}
-                      جنيه
-                    </span>
-                  </p>
-                  <p className="nn" style={{ color: "black" }}>
-                    بدلا من :{" "}
-                    <span className="discount">
-                      {roundN100(
-                        totalPrice < 2500
-                          ? totalPrice + (totalPrice * 7) / 100
-                          : totalPrice
-                      )}{" "}
-                      جنيه
-                    </span>
-                  </p>
+                          <p className="nn dd">
+                            إلــي منطقة:{" "}
+                            <span>{toLocation ? toLocation : "القاهره"}</span>
+                          </p>
+                        </div>
+                        <div className="doooor">
+                          <p className="nn dd">
+                            من الدور : <span>{firstDr ? firstDr : 0}</span>
+                          </p>
+                          <p className="nn dd">
+                            إلي الدور : <span>{secondDr ? secondDr : 0}</span>
+                          </p>
+                        </div>
+                        <div className="doooor">
+                          <p className="nn dd">
+                            عدد غرف النجارة :{" "}
+                            <span>{dishCov ? dishCov : 0}</span>
+                          </p>
+                          <p className="nn dd">
+                            عدد التكييفات :{" "}
+                            <span>{roomsCov ? roomsCov : 0}</span>
+                          </p>
+                        </div>
+                        <div className="doooor">
+                          <p className="nn dd">
+                            التنزيل بالونش :{" "}
+                            <span>{winshDown ? "نعم" : "لا"}</span>
+                          </p>
+                          <p className="nn dd">
+                            التطليع بالونش :{" "}
+                            <span>{winshUp ? "نعم" : "لا"}</span>
+                          </p>
+                        </div>
+                        
+                        <div className="whatsapp text-right mr-2 mt-3">
+                          <ul>
+                            <hr style={{ width: "70%" }}></hr>
+                            <h1
+                              style={{ color: "#fff" }}
+                              className="text-success mt-1"
+                            >
+                              يمكنك التواصل مع المناره علي الواتس اب علي هذه
+                              الأرقام
+                            </h1>
+                            <div className="doooor">
+                              <li className="nn">
+                                <a
+                                  className="text-success"
+                                  href="https://wa.me/01102226225"
+                                  style={{ color: "#77dd77" }}
+                                >
+                                  <i
+                                    className="fa-brands fa-whatsapp text-4xl mx-1 cursor-pointer  whats-icon text-success"
+                                    style={{ color: "#77dd77" }}
+                                  ></i>
+                                  01102226225
+                                </a>
+                              </li>
+                              <li className="nn">
+                                <a
+                                  className="text-success"
+                                  href="https://wa.me/01112967597"
+                                  style={{ color: "#77dd77" }}
+                                >
+                                  <i
+                                    className="fa-brands fa-whatsapp text-4xl mx-1 cursor-pointer  whats-icon text-success"
+                                    style={{ color: "#77dd77" }}
+                                  ></i>
+                                  01112967597
+                                </a>
+                              </li>
+                            </div>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <p className="nn" style={{ color: "black" }}>
+                      إجمالي الحساب بعد الخصم :{" "}
+                      <span>
+                        {roundN100(
+                          totalPrice > 2500
+                            ? (totalPrice * 85) / 100
+                            : (totalPrice * 93) / 100
+                        )}{" "}
+                        جنيه
+                      </span>
+                    </p>
+                    <p className="nn" style={{ color: "black" }}>
+                      بدلا من :{" "}
+                      <span className="discount">
+                        {roundN100(
+                          totalPrice < 2500
+                            ? totalPrice + (totalPrice * 7) / 100
+                            : totalPrice
+                        )}
+                        جنيه
+                      </span>
+                    </p>
+                  </div>
                 </div>
-
                 <div className="order-btns">
                   <button
                     type="button"

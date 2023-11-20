@@ -3,11 +3,10 @@
   justify-content: space-between;
 }
 input {
-  margin-bottom: 2px;
+  margin-bottom: 7px;
 }
 .doooor {
   display: flex;
-  margin: 0;
 }
 .confirm-btn {
   position: absolute;
@@ -17,7 +16,6 @@ input {
 .order-btns {
   display: flex;
   justify-content: space-evenly;
-  margin: 10px;
 }
 .winsh {
   margin-left: 50px;
@@ -55,27 +53,31 @@ input {
 .close-btn-popup {
   font-size: 45px !important;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -10px !important;
+  right: -10px;
   color: red;
   cursor: pointer;
 }
 .popup-headerr {
   font-size: 15px;
   text-align: center;
-  margin: 15px 0 15px 15px!important;
+  margin: 15px 0 15px 15px !important;
   font-weight: 900;
 }
-
+.mnarah{
+  font-size: 15px;
+  text-align: center;
+  font-weight: 900;
+}
 .r-cont h5 {
   background-color: rgba(0, 0, 0, 0.452);
   color: white;
   padding: 5px;
   font-size: 10px;
 }
-.discount{
+.discount {
   text-decoration: line-through;
-  text-decoration-color:black;
+  text-decoration-color: black;
 }
 @media screen and (max-width: 1142px) {
   .popup-headerr {
@@ -90,11 +92,40 @@ input {
   .popup-header {
     font-weight: 900;
   }
+  
   .recipe-cont h5 {
     font-size: 7px;
   }
   .recipe-cont h5 span {
     background-color: rgba(0, 0, 0, 0.452);
-    margin: 0 !important;
   }
+  .nn {
+    font-size: 12px !important;
+    font-weight: 600;
+  }
+  .nn span {
+    font-size: 12px !important;
+    font-weight: 600;
+    color: rgb(242, 66, 7);
+  }
+ .text-success{
+    font-size: 11px !important;
+    margin-top: 0  !important;
+    
+  }
+}
+.whats-icon {
+  font-size: 25px;
+  text-align: right;
+  color: rgb(95, 182, 8) !important;
+}
+
+h5 span {
+  font-size: clamp(1rem, 4vmin, 10rem);
+}
+h4 {
+  margin: 3rem 0;
+}
+.reseat {
+  margin-bottom: 20px;
 }
